@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <title>MT</title>
+
+  <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
+  <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="statusbar-overlay"></div>
+    <div class="panel-overlay"></div>
+
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block" id="main_menu">
+            <h2>Generelt</h2>
+            <a href="snacks.html" class="close-panel"><img src="res/icon_snacks.png"/>&nbsp;&nbsp;&nbsp;Snacks</a>
+            <a onclick="window.open('https://www.facebook.com/groups/198015943556512/', '_system')" data-rel="external"><img src="res/icon_fb.png" />&nbsp;&nbsp;&nbsp;Facebook Gruppe</a>
+            <a onclick="window.open('http://www.musicalteatret.dk/', '_system')" data-rel="external"><img src="res/icon_mt.png" />&nbsp;&nbsp;&nbsp;Website</a>
+            <a onclick="window.open('http://www.musicalteatret.dk/kontakt/', '_system')" data-rel="external"><img src="res/icon_help.png"/>&nbsp;&nbsp;&nbsp;Kontakt</a>
+
+            <h2>Jack the Ripper</h2>
+            <a href="calendar.html" class="close-panel"><img src="res/icon_calendar.png"/>&nbsp;&nbsp;&nbsp;Kalender</a>
+            <a href="tickets.html" class="close-panel"><img src="res/icon_tickets.png"/>&nbsp;&nbsp;&nbsp;Billetter</a>
+            <a href="files.html" class="close-panel"><img src="res/icon_files.png"/>&nbsp;&nbsp;&nbsp;Filer</a>
+            <a href="contacts.html" class="close-panel"><img src="res/icon_contacts.png"/>&nbsp;&nbsp;&nbsp;Kontaktliste</a>
+            <a onclick="window.open('https://www.facebook.com/groups/351300178763468/', '_system')" data-rel="external"><img src="res/icon_fb.png" />&nbsp;&nbsp;&nbsp;Facebook Gruppe</a>
+            <a onclick="window.open('https://onedrive.live.com/?authkey=%21ACTWNdnmessC0x8&id=FCCAB7ABE65F9184%211967&cid=FCCAB7ABE65F9184', '_system')" data-rel="external"><img src="res/icon_od.png" />&nbsp;&nbsp;&nbsp;Online OneDrive</a>
+        </div>
+    </div>
+
+    <div class="views">
+        <div class="view view-main">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">&nbsp;&nbsp;&nbsp;&nbsp;MusicalTeatret</div>
+                    <div class="right">
+                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pages navbar-through toolbar-through">
+                <div data-page="index" class="page">
+                    <div class="page-content">
+                        <div class="content-block" id="p_index">
+                            <a href="snacks.html"><img src="res/icon_snacks.png" /></a>
+                            <a href="calendar.html"><img src="res/icon_calendar.png" /></a>
+                            <a href="files.html"><img src="res/icon_files.png" /></a>
+                            <a href="tickets.html"><img src="res/icon_tickets.png" /></a>
+                        </div>
+                        <div class="content-block" id="login_screen">
+                            <input id="pass_fill" type="text" value="Tast din kode" readonly/>
+                            <input id="pass_field" type="password" readonly/>
+                            <div onclick="javascript:typeNumber(1)">1</div>
+                            <div onclick="javascript:typeNumber(2)">2</div>
+                            <div onclick="javascript:typeNumber(3)">3</div>
+                            <div onclick="javascript:typeNumber(4)">4</div>
+                            <div onclick="javascript:typeNumber(5)">5</div>
+                            <div onclick="javascript:typeNumber(6)">6</div>
+                            <div onclick="javascript:typeNumber(7)">7</div>
+                            <div onclick="javascript:typeNumber(8)">8</div>
+                            <div onclick="javascript:typeNumber(9)">9</div>
+                            <div onclick="javascript:typeNumber(-2)">C</div>
+                            <div onclick="javascript:typeNumber(0)">0</div>
+                            <div onclick="javascript:typeNumber(-1)">&larr;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>

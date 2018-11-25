@@ -1,0 +1,107 @@
+@font-face { font-family: mt; src: url(mt_font.ttf); }
+
+/* NAVIGATION TOP BAR AND PAGES CONTAINER */
+.navbar { background: #ff9900; font-family: mt; font-weight: lighter; }
+.pages { height: calc(100% - 56px); position: fixed; bottom: 0; }
+.content-block { box-sizing: border-box; width: 100%; height: 100%; margin: 0; padding: 16px; }
+.navbar-inner .right { display: none; }
+#main_menu { display: none; }
+
+
+/* LEFT SLIDE MENU */
+.panel-left { background: darkgray; }
+.panel-left * { color: white; vertical-align: middle; }
+.panel-left h2 { font-size: 1.25em; font-weight: normal; text-align: center; font-family: mt; margin: 2em auto 0.75em; }
+.panel-left a { display: block; margin: 0 1em; padding: 0.5em 0; font-weight: bold; }
+.panel-left img { height: 1.5em; }
+
+
+/* FRONT PAGE */
+#p_index { display: none; grid-template-columns: auto auto; grid-gap: 1em; }
+#p_index a { display: flex; flex-direction: column; justify-content: center; align-items: center; background: #ffbb00; }
+#p_index a:nth-child(3n-2) { background: #aaaaaa; }
+#p_index img { max-width: 80%; max-height: 80%; }
+
+#login_screen { box-sizing: border-box; padding: 4em; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(5, 1fr); grid-gap: 1em; }
+#login_screen div, #login_screen input { color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-radius: 3em; font-family: mt; }
+#login_screen div { background: #ffbb00; font-size: 3em; }
+#login_screen input { background: #aaaaaa; font-size: 2.5em; border: none; }
+#pass_field, #pass_fill { grid-column-start: 1; grid-column-end: 4; width: 100%; background: #aaaaaa; border-radius: 3em; }
+#login_screen input#pass_field { display: none; }
+
+
+/* SNACKS SHOP */
+#p_snacks { display: grid; grid-template-columns: 4fr 3fr; grid-template-rows: 7fr 4fr 2fr; grid-gap: 1em; height: 100%; }
+#p_snacks > a { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 3px dashed #aaaaaa; }
+#p_snacks > a img { max-width: 94%; max-height: 94%; }
+
+#s_total { display: grid; grid-column-start: 1; grid-column-end: 3; grid-template-columns: 1fr 3fr 1fr; grid-gap: 0.5em; }
+#s_total a { font-family: mt; background: #ffbb00; color: white; font-size: 1.5em; font-weight: lighter; border-radius: 2em; text-align: center; align-self: center; padding: 0.25em; }
+#s_none, #s_betal { grid-column-start: 1; grid-column-end: 4; }
+#s_none { background: #aaaaaa !important; }
+#s_betal { display: none; }
+
+
+/* CONTACT LIST */
+#p_contacts table { width: 100%; text-align: left; }
+#p_contacts thead { font-family: mt; font-weight: lighter; }
+#p_contacts thead th { padding: 0 0.25em; }
+#p_contacts tbody td { font-size: 0.8em; height: 2.4em; padding: 0 0.5em; }
+#p_contacts tbody tr:nth-child(2n) { background: #eeeeee; }
+#p_contacts a { color: #dd7700; display: flex; flex-direction: column; justify-content: center; }
+#p_contacts img { width: 1.6em; height: 1.6em; }
+
+
+/* CALENDAR */
+#c_container { display: grid; grid-template-columns: repeat(7, 1fr); grid-gap: 0.5em; margin: 0 0 3em; }
+#c_container span, #c_container a { font-family: mt; color: black; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+#c_month { grid-column-start: 2; grid-column-end: 7; font-size: 1.5em; }
+#c_container .c_week { font-size: 1.3em; }
+#c_container .c_dates { background: #f0f0f0; box-sizing: border-box; height: 2.5em; align-self: center; }
+#c_container .agenda { background: #ffee99; }
+#c_m_n, #c_y_n { display: none; }
+.c_events { background: #ffee99; padding: 1em; border-radius: 1em; display: none; margin-bottom: 1em; }
+.e_active { background: #ffbb00 !important; color: white !important; }
+
+.c_events div { display: inline-block; }
+.c_events .titel { font-size: 1.2em; font-weight: bold; }
+.c_events .tidspunkt { font-size: 0.9em; font-style: italic; }
+.c_events .sted { font-size: 0.9em; font-style: italic; margin-top: 1em; }
+.c_events .beskrivelse { margin-top: 1em; }
+.c_events .kapitel { font-weight: bold; display: block; margin-top: 0.6em; }
+.c_events .sub { font-style: italic; font-size: 0.9em; display: block; margin-bottom: 0.3em; }
+
+
+/* TICKET SHOP */
+#p_tickets { display: grid; grid-template-rows: 2fr 4fr 2fr; grid-gap: 1em; }
+#p_tickets i { display: none; }
+#t_groups { display: grid; grid-template-columns: auto auto; grid-gap: 1em; }
+#t_groups a { font-family: mt; font-size: 1.5em; color: black; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+#t_groups .grpA { border: 3px dashed #0099ff; } #t_groups .grpB { border: 3px dashed #ff4d4d; }
+#t_groups .grpC { border: 3px dashed #33cc33; } #t_groups .grpD { border: 3px dashed #ffbf00; }
+
+#t_seats { display: grid; grid-gap: 1px; grid-template-columns: repeat(24, auto); grid-template-rows: repeat(11, auto); }
+#t_seats div { width: 100%; height: 1em; }
+#t_seats .grpA { background: #0099ff; } #t_seats .grpB { background: #ff4d4d; }
+#t_seats .grpC { background: #33cc33; } #t_seats .grpD { background: #ffbf00; }
+#t_scene { font-family: mt; font-size: 1.5em; padding-top: 0.5em; grid-column-start: 1; grid-column-end: 25; text-align: center; }
+
+#t_pay { display: grid; grid-template-columns: 1fr 4fr; grid-gap: 0.5em; }
+#t_pay * { text-align: center; font-family: mt; align-self: center; }
+#t_price { grid-column-start: 2; grid-column-end: 5; }
+#t_reset, #t_price { color: white; background: #ffbb00; border-radius: 1em; font-size: 1.5em; padding: 0.25em 0; }
+#t_basket { color: #dd7700; font-size: 1.4em; }
+#t_empty, #t_betal { color: white; border-radius: 1em; font-size: 1.5em; padding: 0.25em 0; }
+#t_empty { background: #aaaaaa; }
+#t_betal { background: #ffbb00; display: none; }
+#t_basket, #t_betal, #t_empty { grid-column-start: 1; grid-column-end: 5; }
+
+
+/* FILE LIST */
+#p_files a { display: grid; width: 100%; grid-template-columns: 1fr 4fr; grid-gap: 1em; margin: 0; }
+#p_files a p { padding: 0; margin: auto 0; color: black; }
+#p_files a img { box-sizing: border-box; width: 100%; padding: 1em; }
+
+
+/* VARIOUS */
+.construction { z-index: 9000; position: fixed; width: 100%; height: 100%; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-shadow: 0 0 10px black; background: rgba(0,0,0,0.4); font-family: mt; font-size: 3em; color: white; }
