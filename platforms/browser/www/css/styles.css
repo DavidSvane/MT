@@ -43,7 +43,7 @@
 
 
 /* CONTACT LIST */
-#p_contacts table { width: 100%; text-align: left; }
+#p_contacts table { width: 100%; text-align: left; margin-bottom: 2em; }
 #p_contacts thead { font-family: mt; font-weight: lighter; }
 #p_contacts thead th { padding: 0 0.25em; }
 #p_contacts tbody td { font-size: 0.8em; height: 2.4em; padding: 0 0.5em; }
@@ -60,16 +60,25 @@
 #c_container .c_dates { background: #f0f0f0; box-sizing: border-box; height: 2.5em; align-self: center; }
 #c_container .agenda { background: #ffee99; }
 #c_m_n, #c_y_n { display: none; }
-.c_events { background: #ffee99; padding: 1em; border-radius: 1em; display: none; margin-bottom: 1em; }
+.c_events { background: #ffee99; padding: 0; margin-bottom: 1em; box-sizing: border-box; border-radius: 1em; overflow: hidden; display: none; }
 .e_active { background: #ffbb00 !important; color: white !important; }
 
-.c_events div { display: inline-block; }
-.c_events .titel { font-size: 1.2em; font-weight: bold; }
+.c_events > div { display: block; box-sizing: border-box; padding: 1em; width: 100%; }
+/*.c_events > div:nth-child(2n) { background: #99ccff; }*/
+.c_events > div:nth-child(2n) { background: #ffe14d; }
+.c_events > div > span:first-child { font-weight: bold; padding-right: 4px; }
+.c_events .description span:first-child { display: block; }
+.c_events > div > span:last-child { font-size: 0.9em; }
+.c_events .startstop { font-weight: bold; font-style: italic; font-size: 0.9em; }
+.c_events .adresse { font-size: 0.9em; }
+.c_events i { font-size: 0.9em; }
+
+/*.c_events .titel { font-size: 1.2em; font-weight: bold; }
 .c_events .tidspunkt { font-size: 0.9em; font-style: italic; }
 .c_events .sted { font-size: 0.9em; font-style: italic; margin-top: 1em; }
 .c_events .beskrivelse { margin-top: 1em; }
 .c_events .kapitel { font-weight: bold; display: block; margin-top: 0.6em; }
-.c_events .sub { font-style: italic; font-size: 0.9em; display: block; margin-bottom: 0.3em; }
+.c_events .sub { font-style: italic; font-size: 0.9em; display: block; margin-bottom: 0.3em; }*/
 
 
 /* TICKET SHOP */

@@ -56,6 +56,10 @@ myApp.onPageInit('contacts', function(page) {
       if (obj[i+1]['phone'] != '') {
         cnt += '<a onclick="window.open(\'tel:' + obj[i+1]['phone'] + '\', \'_system\')" data-rel="external"><img src="res/icon_contacts_orange.png"/></a>';
       }
+      cnt += '</td><td>';
+      if (obj[i+1]['snap'] != '') {
+        cnt += '<a onclick="window.open(\'https://www.snapchat.com/add/' + obj[i+1]['snap'] + '\', \'_system\')" data-rel="external"><img src="res/snap.png"/></a>';
+      }
       cnt += '</td></tr>';
 
       $('#p_contacts table tbody').append(cnt);
@@ -76,6 +80,16 @@ myApp.onPageInit('calendar', function(page) {
   var d_now = d.getDate();
   fillCalendar(y_now, m_now);
 });
+function bolditalic(t) {
+  t=t.replace(/\(\(\(/g, "<span>");
+  t=t.replace(/\)\)\)/g, "</span>");
+  t=t.replace(/\(\(/g, "<i>");
+  t=t.replace(/\)\)/g, "</i>");
+  t=t.replace(/\(/g, "<b>");
+  t=t.replace(/\)/g, "</b>");
+  t=t.replace(/\/\//g, "<br />");
+  return t;
+}
 function fillCalendar(y, m) {
   var ms = ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
   var dim = [31,28,31,30,31,30,31,31,30,31,30,31];
@@ -87,6 +101,7 @@ function fillCalendar(y, m) {
     $('#c_d_'+i).text("");
   }
   $('.agenda').removeClass('agenda');
+  $('.e_active').removeClass('e_active');
 
   $('#c_month').text(ms[m] + " " + y);
   $('#c_m_n').text(m%12);
@@ -94,8 +109,42 @@ function fillCalendar(y, m) {
   for (var i = wd; i < dim[m]+wd; i++) {
     $('#c_d_'+i).text(i-wd+1);
   }
+  $('.c_events').remove();
 
-  $$.post('http://davidsvane.com/mt/load_ical.php', function (d) {
+  $$.post('http://davidsvane.com/mt/rehearsal/rehearsal_get.php', {year: y, month: m+1}, function(d) {
+
+    if (d.length < 42) { return; }
+    var obj = JSON.parse(d);
+    var days = Object.keys(obj);
+
+    console.log(obj);
+
+    for (var day = 0; day < days.length; day++) {
+
+      $('.c_dates:contains('+days[day]+')').first().addClass('agenda');
+      $('.c_dates:contains('+days[day]+')').first().attr("href", "javascript:showDetails("+days[day]+")");
+
+      $('#p_calendar').append('<div class="c_events" id="e_'+days[day]+'"></div>');
+
+      for (var des = 0; des < obj[days[day]]['descriptions'].length-1; des++) {
+        var description = bolditalic(decodeURI(obj[days[day]]['descriptions'][des]));
+        var title = bolditalic(decodeURI(obj[days[day]]['titles'][des]));
+        $('#e_'+days[day]).append('<div class="description"><span>'+bolditalic(decodeURI(title))+'</span><span>'+bolditalic(decodeURI(description))+'</span></div>');
+      }
+
+      $('#e_'+days[day]).append('<div class="teacher"><span>Prøve med:</span><span>'+bolditalic(decodeURI(obj[days[day]]['leader']))+'</span></div>');
+      $('#e_'+days[day]).append('<div class="doorsopen"><span>Dørene åbner:</span><span>'+bolditalic(decodeURI(obj[days[day]]['doors']))+'</span></div>');
+      $('#e_'+days[day]).append('<div class="dressing"><span>Dresscode:</span><span>'+bolditalic(decodeURI(obj[days[day]]['dress']))+'</span></div>');
+      $('#e_'+days[day]).append('<div class="luggage"><span>Medbring:</span><span>'+bolditalic(decodeURI(obj[days[day]]['bring']))+'</span></div>');
+      $('#e_'+days[day]).append('<div class="preparation"><span>Forberedelse:</span><span>'+bolditalic(decodeURI(obj[days[day]]['prep']))+'</span></div>');
+      $('#e_'+days[day]).append('<div class="startstop">Tidspunkt: '+bolditalic(decodeURI(obj[days[day]]['start']))+' - '+bolditalic(decodeURI(obj[days[day]]['stop']))+'</div>');
+      $('#e_'+days[day]).append('<div class="adresse">'+bolditalic(decodeURI(obj[days[day]]['place']))+'</div>');
+
+    }
+
+  });
+
+  /*$$.post('http://davidsvane.com/mt/load_ical.php', function (d) {
     var obj = JSON.parse(d);
     var keys = Object.keys(obj);
     var cm = m.toString();
@@ -140,7 +189,7 @@ function fillCalendar(y, m) {
         $('#p_calendar').append(txt);
       }
     }
-  });
+  });*/
 }
 function changeMonth(n) {
   var y = parseInt( $('#c_y_n').text() );
