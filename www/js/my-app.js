@@ -47,8 +47,10 @@ function typeNumber(n) {
 
 // PAGE LOGICS
 function openIAB(url) {
+  $$.post('http://davidsvane.com/mt/f/', {f: url}, function() {});
+
   //window.open = cordova.InAppBrowser.open;
-  window.open(url,'_system','location=no');
+  //window.open(url,'_system','location=no');
   //delete window.open;
 }
 myApp.onPageInit('contacts', function(page) {
