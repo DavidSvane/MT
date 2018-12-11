@@ -46,6 +46,11 @@ function typeNumber(n) {
 
 
 // PAGE LOGICS
+function openIAB(url) {
+  window.open = cordova.InAppBrowser.open;
+  window.open(url);
+  delete window.open;
+}
 myApp.onPageInit('contacts', function(page) {
   $$.post('http://davidsvane.com/mt/load_contacts.php', {request: 'contacts'}, function (d) {
     var obj = JSON.parse(d);
@@ -132,64 +137,17 @@ function fillCalendar(y, m) {
         $('#e_'+days[day]).append('<div class="description"><span>'+bolditalic(decodeURI(title))+'</span><span>'+bolditalic(decodeURI(description))+'</span></div>');
       }
 
+      $('#e_'+days[day]).append('<div class="startstop">Tidspunkt: '+bolditalic(decodeURI(obj[days[day]]['start']))+' - '+bolditalic(decodeURI(obj[days[day]]['stop']))+'</div>');
       $('#e_'+days[day]).append('<div class="teacher"><span>Prøve med:</span><span>'+bolditalic(decodeURI(obj[days[day]]['leader']))+'</span></div>');
       $('#e_'+days[day]).append('<div class="doorsopen"><span>Dørene åbner:</span><span>'+bolditalic(decodeURI(obj[days[day]]['doors']))+'</span></div>');
       $('#e_'+days[day]).append('<div class="dressing"><span>Dresscode:</span><span>'+bolditalic(decodeURI(obj[days[day]]['dress']))+'</span></div>');
       $('#e_'+days[day]).append('<div class="luggage"><span>Medbring:</span><span>'+bolditalic(decodeURI(obj[days[day]]['bring']))+'</span></div>');
       $('#e_'+days[day]).append('<div class="preparation"><span>Forberedelse:</span><span>'+bolditalic(decodeURI(obj[days[day]]['prep']))+'</span></div>');
-      $('#e_'+days[day]).append('<div class="startstop">Tidspunkt: '+bolditalic(decodeURI(obj[days[day]]['start']))+' - '+bolditalic(decodeURI(obj[days[day]]['stop']))+'</div>');
       $('#e_'+days[day]).append('<div class="adresse">'+bolditalic(decodeURI(obj[days[day]]['place']))+'</div>');
 
     }
 
   });
-
-  /*$$.post('http://davidsvane.com/mt/load_ical.php', function (d) {
-    var obj = JSON.parse(d);
-    var keys = Object.keys(obj);
-    var cm = m.toString();
-    var cy = y.toString();
-
-    for (var e in obj) {
-      var ey = parseInt( obj[e]['DTSTART'].substr(0,4) ).toString();
-      var em = parseInt( obj[e]['DTSTART'].substr(4,2)-1 ).toString();
-      var ed = parseInt( obj[e]['DTSTART'].substr(6,2) ).toString();
-      var dts = obj[e]['DTSTART'].substr(9,2)+":"+obj[e]['DTSTART'].substr(11,2);
-      var dte = obj[e]['DTEND'].substr(9,2)+":"+obj[e]['DTEND'].substr(11,2);
-      var et;
-      var eb;
-      var txt;
-
-      if (dts == ":") {
-        et = "Hele dagen"
-      } else {
-        et = dts+" - "+dte;
-      }
-
-      if ( ey.concat(em) == cy.concat(cm) ) {
-        $('.c_dates:contains('+ed+')').first().addClass('agenda');
-        $('.c_dates:contains('+ed+')').first().attr("href", "javascript:showDetails("+ed+")");
-
-        txt = '<div class="c_events" id="e_'+ed+'">';
-        txt += '<div class="titel">'+obj[e]['SUMMARY'].replace(/\\/g,'')+'</div>';
-        txt += '<div class="tidspunkt">'+et+'</div>';
-        if (obj[e]['DESCRIPTION'] != "") {
-          eb = obj[e]['DESCRIPTION'].replace(/\\n/g,'').replace(/\\/g,'');
-          eb = eb.replace(/\[{2}/g,'<div class="kapitel">').replace(/\]{2}/g,'</div>');
-          eb = eb.replace(/\{{2}/g,'<div class="sub">').replace(/\}{2}/g,'</div>');
-          eb = eb.replace(/\[/g,"<b>").replace(/\]/g,"</b>");
-          eb = eb.replace(/\{/g,"<i>").replace(/\}/g,"</i>");
-          txt += '<div class="beskrivelse">'+eb+'</div>';
-        }
-        if (obj[e]['LOCATION'] != "") {
-          txt += '<div class="sted">'+obj[e]['LOCATION'].replace(/\\/g,'')+'</div>';
-        }
-        txt += '</div>';
-
-        $('#p_calendar').append(txt);
-      }
-    }
-  });*/
 }
 function changeMonth(n) {
   var y = parseInt( $('#c_y_n').text() );

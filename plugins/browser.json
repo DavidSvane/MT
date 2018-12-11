@@ -15,6 +15,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.davidsvane.mt"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.davidsvane.mt"
         }
     },
     "dependent_plugins": {}

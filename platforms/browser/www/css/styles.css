@@ -65,20 +65,13 @@
 
 .c_events > div { display: block; box-sizing: border-box; padding: 1em; width: 100%; }
 /*.c_events > div:nth-child(2n) { background: #99ccff; }*/
-.c_events > div:nth-child(2n) { background: #ffe14d; }
+.c_events > div:nth-child(2n) { background: #f0f0f0; }
 .c_events > div > span:first-child { font-weight: bold; padding-right: 4px; }
 .c_events .description span:first-child { display: block; }
 .c_events > div > span:last-child { font-size: 0.9em; }
 .c_events .startstop { font-weight: bold; font-style: italic; font-size: 0.9em; }
 .c_events .adresse { font-size: 0.9em; }
 .c_events i { font-size: 0.9em; }
-
-/*.c_events .titel { font-size: 1.2em; font-weight: bold; }
-.c_events .tidspunkt { font-size: 0.9em; font-style: italic; }
-.c_events .sted { font-size: 0.9em; font-style: italic; margin-top: 1em; }
-.c_events .beskrivelse { margin-top: 1em; }
-.c_events .kapitel { font-weight: bold; display: block; margin-top: 0.6em; }
-.c_events .sub { font-style: italic; font-size: 0.9em; display: block; margin-bottom: 0.3em; }*/
 
 
 /* TICKET SHOP */
