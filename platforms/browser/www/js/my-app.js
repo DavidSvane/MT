@@ -47,7 +47,7 @@ function typeNumber(n) {
 
 // PAGE LOGICS
 function openIAB(url) {
-  window.open('http://davidsvane.com/mt/f/?f='+url,'_system','location=no');
+  window.open('http://davidsvane.com/mt/f/?f='+url,'_system');
 }
 myApp.onPageInit('contacts', function(page) {
   $$.post('http://davidsvane.com/mt/load_contacts.php', {request: 'contacts'}, function (d) {
