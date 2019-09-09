@@ -12,80 +12,105 @@
 
   <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
   <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/sass.css">
 </head>
 
 <body>
-    <div class="statusbar-overlay"></div>
-    <div class="panel-overlay"></div>
+  <div class="statusbar-overlay"></div>
+  <div class="panel-overlay"></div>
 
-    <div class="panel panel-left panel-reveal">
-        <div class="content-block" id="main_menu">
-            <h2>Generelt</h2>
-            <a href="snacks.html" class="close-panel"><img src="res/icon_snacks.png"/>&nbsp;&nbsp;&nbsp;Snacks</a>
-            <a onclick="window.open('https://www.facebook.com/groups/198015943556512/', '_system')" data-rel="external"><img src="res/icon_fb.png" />&nbsp;&nbsp;&nbsp;Facebook Gruppe</a>
-            <a onclick="window.open('http://www.musicalteatret.dk/', '_system')" data-rel="external"><img src="res/icon_mt.png" />&nbsp;&nbsp;&nbsp;Website</a>
-            <a onclick="window.open('http://www.musicalteatret.dk/kontakt/', '_system')" data-rel="external"><img src="res/icon_help.png"/>&nbsp;&nbsp;&nbsp;Kontakt</a>
+  <div class="panel panel-left panel-reveal">
+    <div class="content-block" id="main_menu">
+      <a class="creator" onclick="window.open('https://facebook.com/davidsvane', '_system')" data-rel="external">App af David Svane</a>
 
-            <h2>Jack the Ripper</h2>
-            <a href="calendar.html" class="close-panel"><img src="res/icon_calendar.png"/>&nbsp;&nbsp;&nbsp;Kalender</a>
-            <a href="tickets.html" class="close-panel"><img src="res/icon_tickets.png"/>&nbsp;&nbsp;&nbsp;Billetter</a>
-            <a href="files.html" class="close-panel"><img src="res/icon_files.png"/>&nbsp;&nbsp;&nbsp;Filer</a>
-            <a href="contacts.html" class="close-panel"><img src="res/icon_contacts.png"/>&nbsp;&nbsp;&nbsp;Kontaktliste</a>
-            <a onclick="window.open('https://www.facebook.com/groups/351300178763468/', '_system')" data-rel="external"><img src="res/icon_fb.png" />&nbsp;&nbsp;&nbsp;Facebook Gruppe</a>
-            <a onclick="window.open('https://onedrive.live.com/?authkey=%21ACTWNdnmessC0x8&id=FCCAB7ABE65F9184%211967&cid=FCCAB7ABE65F9184', '_system')" data-rel="external"><img src="res/icon_od.png" />&nbsp;&nbsp;&nbsp;Online OneDrive</a>
-        </div>
+      <h2>Diva</h2>
+      <a href="calendar_F.html" class="close-panel"><img src="res/icon_calendar.png"/>&nbsp;&nbsp;&nbsp;Kalender</a>
+      <a href="tickets_F.html" class="close-panel"><img src="res/icon_tickets.png"/>&nbsp;&nbsp;&nbsp;Billetter</a>
+      <a href="files_F.html" class="close-panel"><img src="res/icon_files.png"/>&nbsp;&nbsp;&nbsp;Filer</a>
+      <a href="contacts_F.html" class="close-panel"><img src="res/icon_contacts.png"/>&nbsp;&nbsp;&nbsp;Kontaktliste</a>
+      <a onclick="window.open('https://facebook.com/', '_system')" data-rel="external"><img src="res/icon_fb.png" />&nbsp;&nbsp;&nbsp;Facebook Gruppe</a>
+      <a onclick="window.open('https://facebook.com/', '_system')" data-rel="external"><img src="res/icon_od.png" />&nbsp;&nbsp;&nbsp;Online OneDrive</a>
+
+      <h2>Væk i en sæk</h2>
+      <a href="calendar_E.html" class="close-panel"><img src="res/icon_calendar.png"/>&nbsp;&nbsp;&nbsp;Kalender</a>
+      <a href="tickets_E.html" class="close-panel"><img src="res/icon_tickets.png"/>&nbsp;&nbsp;&nbsp;Billetter</a>
+      <a href="files_E.html" class="close-panel"><img src="res/icon_files.png"/>&nbsp;&nbsp;&nbsp;Filer</a>
+      <a href="contacts_E.html" class="close-panel"><img src="res/icon_contacts.png"/>&nbsp;&nbsp;&nbsp;Kontaktliste</a>
+      <a onclick="window.open('https://facebook.com/', '_system')" data-rel="external"><img src="res/icon_fb.png" />&nbsp;&nbsp;&nbsp;Facebook Gruppe</a>
+      <a onclick="window.open('https://facebook.com/', '_system')" data-rel="external"><img src="res/icon_od.png" />&nbsp;&nbsp;&nbsp;Online OneDrive</a>
+
+      <h2>Generelt</h2>
+      <a href="snacks.html" class="close-panel"><img src="res/icon_snacks.png"/>&nbsp;&nbsp;&nbsp;Snacks</a>
+      <a onclick="window.open('http://www.musicalteatret.dk/', '_system')" data-rel="external"><img src="res/icon_mt.png" />&nbsp;&nbsp;&nbsp;Hjemmeside</a>
+      <a onclick="window.open('https://www.facebook.com/groups/198015943556512/', '_system')" data-rel="external"><img src="res/icon_fb.png" />&nbsp;&nbsp;&nbsp;Facebook Gruppe</a>
+      <a onclick="window.open('https://www.youtube.com/user/Musicalteatret', '_system')" data-rel="external"><img src="res/icon_youtube.png" />&nbsp;&nbsp;&nbsp;YouTube</a>
+      <a onclick="window.open('https://www.instagram.com/musicalteatret/', '_system')" data-rel="external"><img src="res/icon_instagram.png" />&nbsp;&nbsp;&nbsp;Instagram</a>
+      <a onclick="window.open('https://twitter.com/musicalteatret', '_system')" data-rel="external"><img src="res/icon_twitter.png" />&nbsp;&nbsp;&nbsp;Twitter</a>
+      <a onclick="window.open('http://www.musicalteatret.dk/kontakt/', '_system')" data-rel="external"><img src="res/icon_help.png"/>&nbsp;&nbsp;&nbsp;Kontakt</a>
+
+      <!--<h2>Jack the Ripper</h2>
+      <a href="calendar.html" class="close-panel"><img src="res/icon_calendar.png"/>&nbsp;&nbsp;&nbsp;Kalender</a>
+      <a href="tickets.html" class="close-panel"><img src="res/icon_tickets.png"/>&nbsp;&nbsp;&nbsp;Billetter</a>
+      <a href="files.html" class="close-panel"><img src="res/icon_files.png"/>&nbsp;&nbsp;&nbsp;Filer</a>
+      <a href="contacts.html" class="close-panel"><img src="res/icon_contacts.png"/>&nbsp;&nbsp;&nbsp;Kontaktliste</a>
+      <a onclick="window.open('https://www.facebook.com/groups/351300178763468/', '_system')" data-rel="external"><img src="res/icon_fb.png" />&nbsp;&nbsp;&nbsp;Facebook Gruppe</a>
+      <a onclick="window.open('https://onedrive.live.com/?authkey=%21ACTWNdnmessC0x8&id=FCCAB7ABE65F9184%211967&cid=FCCAB7ABE65F9184', '_system')" data-rel="external"><img src="res/icon_od.png" />&nbsp;&nbsp;&nbsp;Online OneDrive</a>-->
     </div>
+  </div>
 
-    <div class="views">
-        <div class="view view-main">
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <div class="left">&nbsp;&nbsp;&nbsp;&nbsp;MusicalTeatret</div>
-                    <div class="right">
-                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pages navbar-through toolbar-through">
-                <div data-page="index" class="page">
-                    <div class="page-content">
-                        <div class="content-block" id="p_index">
-                          <a href="snacks.html" id="i_snacks"></a>
-                          <a href="calendar.html" id="i_calendar"></a>
-                          <a href="tickets.html" id="i_tickets"></a>
-                          <!--<a href="snacks.html"><img src="res/icon_snacks.png" /></a>
-                          <a href="calendar.html"><img src="res/icon_calendar.png" /></a>
-                          <a href="files.html"><img src="res/icon_files.png" /></a>
-                          <a href="tickets.html"><img src="res/icon_tickets.png" /></a>-->
-                        </div>
-                        <div class="content-block" id="login_screen">
-                            <input id="pass_fill" type="text" value="Tast din kode" readonly/>
-                            <input id="pass_field" type="password" readonly/>
-                            <div onclick="javascript:typeNumber(1)">1</div>
-                            <div onclick="javascript:typeNumber(2)">2</div>
-                            <div onclick="javascript:typeNumber(3)">3</div>
-                            <div onclick="javascript:typeNumber(4)">4</div>
-                            <div onclick="javascript:typeNumber(5)">5</div>
-                            <div onclick="javascript:typeNumber(6)">6</div>
-                            <div onclick="javascript:typeNumber(7)">7</div>
-                            <div onclick="javascript:typeNumber(8)">8</div>
-                            <div onclick="javascript:typeNumber(9)">9</div>
-                            <div onclick="javascript:typeNumber(-2)">C</div>
-                            <div onclick="javascript:typeNumber(0)">0</div>
-                            <div onclick="javascript:typeNumber(-1)">&larr;</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="views">
+    <div class="view view-main">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="left">&nbsp;&nbsp;&nbsp;&nbsp;MusicalTeatret</div>
+          <div class="right">
+            <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
+      <div class="pages navbar-through toolbar-through">
+        <div data-page="index" class="page">
+          <div class="page-content">
+            <div class="content-block" id="p_index">
+              <div class="show-left">
+                <a class="poster" onclick="window.open('https://facebook.com/', '_system')" data-rel="external"></a>
+                <a href="calendar_F.html" class="i_calendar"></a>
+                <a href="tickets_F.html" class="i_tickets"></a>
+              </div>
+              <div class="show-right">
+                <a href="calendar_E.html" class="i_calendar"></a>
+                <a href="tickets_E.html" class="i_tickets"></a>
+                <a class="poster" onclick="window.open('https://facebook.com/', '_system')" data-rel="external"></a>
+              </div>
+              <a href="snacks.html" id="i_snacks"></a>
+            </div>
+            <div class="content-block" id="login_screen">
+              <input id="pass_fill" type="text" value="Tast din kode" readonly/>
+              <input id="pass_field" type="password" readonly/>
+              <div onclick="javascript:typeNumber(1)">1</div>
+              <div onclick="javascript:typeNumber(2)">2</div>
+              <div onclick="javascript:typeNumber(3)">3</div>
+              <div onclick="javascript:typeNumber(4)">4</div>
+              <div onclick="javascript:typeNumber(5)">5</div>
+              <div onclick="javascript:typeNumber(6)">6</div>
+              <div onclick="javascript:typeNumber(7)">7</div>
+              <div onclick="javascript:typeNumber(8)">8</div>
+              <div onclick="javascript:typeNumber(9)">9</div>
+              <div onclick="javascript:typeNumber(-2)">C</div>
+              <div onclick="javascript:typeNumber(0)">0</div>
+              <div onclick="javascript:typeNumber(-1)">&larr;</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
+  <script type="text/javascript" src="js/my-app.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,102 @@
+// main: main.sass
+
+/* TICKET SHOP */
+#p_tickets
+  display: grid
+  grid-template-rows: 2fr 4fr 2fr
+  grid-gap: 1em
+
+  i
+    display: none
+
+#t_groups
+  display: grid
+  grid-template-columns: auto auto
+  grid-gap: 1em
+
+  a
+    font-family: mt
+    font-size: 1.5em
+    color: black
+    text-align: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  .grpA
+    border: 3px dashed $ticket-blue
+  .grpB
+    border: 3px dashed $ticket-red
+  .grpC
+    border: 3px dashed $ticket-green
+  .grpD
+    border: 3px dashed $ticket-yellow
+
+#t_seats
+  display: grid
+  grid-gap: 1px
+  grid-template-columns: repeat(24, auto)
+  grid-template-rows: repeat(11, auto)
+
+  div
+    width: 100%
+    height: 1em
+
+  .grpA
+    background: $ticket-blue
+  .grpB
+    background: $ticket-red
+  .grpC
+    background: $ticket-green
+  .grpD
+    background: $ticket-yellow
+
+#t_scene
+  font-family: mt
+  font-size: 1.5em
+  padding-top: 0.5em
+  grid-column-start: 1
+  grid-column-end: 25
+  text-align: center
+
+#t_pay
+  display: grid
+  grid-template-columns: 1fr 4fr
+  grid-gap: 0.5em
+
+  *
+    text-align: center
+    font-family: mt
+    align-self: center
+
+#t_price
+  grid-column-start: 2
+  grid-column-end: 5
+
+#t_reset, #t_price
+  color: white
+  background: $theme-light
+  border-radius: 1em
+  font-size: 1.5em
+  padding: 0.25em 0
+
+#t_basket
+  color: $theme-darker
+  font-size: 1.4em
+
+#t_empty, #t_betal
+  color: white
+  border-radius: 1em
+  font-size: 1.5em
+  padding: 0.25em 0
+
+#t_empty
+  background: $gray-dark
+
+#t_betal
+  background: $theme-light
+  display: none
+
+#t_basket, #t_betal, #t_empty
+  grid-column-start: 1
+  grid-column-end: 5

@@ -1,0 +1,49 @@
+// main: main.sass
+
+/* SNACKS SHOP */
+#p_snacks
+  display: grid
+  grid-template-columns: 4fr 3fr
+  grid-template-rows: 7fr 4fr 2fr
+  grid-gap: 1em
+  height: 100%
+
+  > a
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    border: 3px dashed $gray-dark
+
+    img
+      max-width: 94%
+      max-height: 94%
+
+#s_total
+  display: grid
+  grid-column-start: 1
+  grid-column-end: 3
+  grid-template-columns: 1fr 3fr 1fr
+  grid-gap: 0.5em
+
+  a
+    font-family: mt
+    background: $theme-light
+    color: white
+    font-size: 1.5em
+    font-weight: lighter
+    border-radius: 2em
+    text-align: center
+    align-self: center
+    padding: 0.25em
+
+#s_none, #s_betal
+  grid-column-start: 1
+  grid-column-end: 4
+
+#s_none
+  background: $gray-dark !important
+
+#s_betal
+  display: none

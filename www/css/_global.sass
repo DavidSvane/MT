@@ -1,0 +1,56 @@
+// main: main.sass
+
+// INFO: NAVBAR
+.navbar
+  background: $theme-dark
+  font-family: mt
+  font-weight: lighter
+
+.pages
+  height: calc(100% - 56px)
+  position: fixed; bottom: 0
+
+.content-block
+  box-sizing: border-box
+  height: 100%
+  margin: 0
+  padding: 16px
+  width: 100%
+
+.navbar-inner .right
+  display: none
+
+#main_menu
+  display: none
+
+
+// INFO: MENU
+.panel-left
+  background: $gray-dark
+
+  *
+    color: white
+    vertical-align: middle
+
+  h2
+    font-family: mt
+    font-size: 1.25em
+    font-weight: normal
+    margin: 2em auto 0.75em
+    text-align: center
+
+  a
+    display: block
+    font-weight: bold
+    margin: 0 1em
+    padding: 0.5em 0
+
+    &.creator
+      padding: 0
+      margin: 0
+      width: 100%
+      text-align: center
+      font-style: italic
+
+  img
+    height: 1.5em

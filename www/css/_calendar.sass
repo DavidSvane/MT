@@ -1,0 +1,81 @@
+// main: main.sass
+
+// INFO: CALENDAR PAGE STYLING
+#c_container
+  display: grid
+  grid-template-columns: repeat(7, 1fr)
+  grid-gap: 0.5em
+  margin: 0 0 3em
+
+  span, a
+    font-family: mt
+    color: black
+    text-align: center
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  .c_week
+    font-size: 1.3em
+
+  .c_dates
+    background: $gray-lighter
+    box-sizing: border-box
+    height: 2.5em
+    align-self: center
+
+  .agenda
+    background: $theme-lighter
+
+#c_month
+  grid-column-start: 2
+  grid-column-end: 7
+  font-size: 1.5em
+
+
+#c_m_n, #c_y_n
+  display: none
+
+.c_events
+  background: $theme-lighter
+  padding: 0
+  margin-bottom: 1em
+  box-sizing: border-box
+  border-radius: 1em
+  overflow: hidden
+  display: none
+
+  > div
+    display: block
+    box-sizing: border-box
+    padding: 1em
+    width: 100%
+
+    &:nth-child(2n)
+      background: $gray-lighter
+
+    > span:first-child
+      font-weight: bold
+      padding-right: 4px
+
+    > span:last-child
+      font-size: 0.9em
+
+  .description
+    span:first-child
+      display: block
+
+  .startstop
+    font-weight: bold
+    font-style: italic
+    font-size: 0.9em
+
+  .adresse
+    font-size: 0.9em
+
+  i
+    font-size: 0.9em
+
+.e_active
+  background: $theme-light !important
+  color: white !important
