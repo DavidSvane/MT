@@ -19,8 +19,11 @@
     <allow-intent href="http://*/*" launch-external="yes"/>
     <allow-intent href="https://*/*" launch-external="yes"/>
 
-	<allow-navigation href="http://www.musicalteatret.dk/*"/>
-  <allow-navigation href="http://davidsvane.com/*"/>
+	<allow-navigation href="*musicalteatret*"/>
+  <allow-navigation href="*davidsvane*"/>
+  <allow-navigation href="*youtube*" />
+  <allow-navigation href="*ytimg*" />
+  <allow-navigation href="*youtube-nocookie*" />
 
     <platform name="android">
         <preference name="android-minSdkVersion" value="14" />
@@ -58,6 +61,8 @@
     </platform>
 
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
     <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />
