@@ -25,57 +25,64 @@
     align-self: center
 
   .agenda
-    background: $theme-lighter
+    color: white
+
+    &_F
+      background: $front-F
+    &_E
+      background: $front-E
 
 #c_month
   grid-column-start: 2
   grid-column-end: 7
   font-size: 1.5em
 
+#c_events
+  box-sizing: border-box
+  width: 100%
 
-#c_m_n, #c_y_n
-  display: none
-
-.c_events
-  background: $theme-lighter
+.c_event
+  color: white
   padding: 0
   margin-bottom: 1em
   box-sizing: border-box
-  border-radius: 1em
+  border-radius: 4px
   overflow: hidden
-  display: none
+  display: block
+  padding: 1.25em
 
-  > div
-    display: block
-    box-sizing: border-box
-    padding: 1em
+  &_F
+    background: $front-F
+  &_E
+    background: $front-E
+
+  .e_title
     width: 100%
+    font-size: 1.5em
+    text-align: center
+    margin: 0
+    padding-bottom: 0.5em
 
-    &:nth-child(2n)
-      background: $gray-lighter
+  .e_date
+    display: inline
 
-    > span:first-child
-      font-weight: bold
-      padding-right: 4px
+  .e_time
+    display: inline
+    padding-left: 1em
 
-    > span:last-child
-      font-size: 0.9em
-
-  .description
-    span:first-child
-      display: block
-
-  .startstop
-    font-weight: bold
+  .e_place
+    margin-top: 0
+    padding-top: 0
     font-style: italic
-    font-size: 0.9em
 
-  .adresse
-    font-size: 0.9em
-
-  i
-    font-size: 0.9em
+  .e_link
+    color: $gray-light
+    text-decoration: underline
 
 .e_active
-  background: $theme-light !important
   color: white !important
+
+  &_F
+    background: $front-F !important
+  &_E
+    background: $front-E !important

@@ -56,7 +56,28 @@ function loadFrontPage() {
   $('#p_index .show-left .poster').css("background-image", "url(\'res/poster_"+ $('body').attr("data-F") +".jpg\')");
   $('#p_index .show-right .poster').css("background-image", "url(\'res/poster_"+ $('body').attr("data-E") +".jpg\')");
 }
+
 /* calendar */
+function buildCalendar(y, m) {
+  var MONTHS = ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
+  var DAYS_IN_MONTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  var FIRST = new Date(y, m);
+  var WEEK_DAY = (FIRST.getDay() + 6) % 7;
+
+  if ( (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0) ) { DAYS_IN_MONTHS[1] = 29; }
+
+  $('#c_month').text(MONTHS[ m ] + " " + y);
+  $('#c_container').attr("curr-year", y);
+  $('#c_container').attr("curr-month", m % 12);
+
+  $('.c_dates').remove();
+  for (var i = 0; i < 42; i++) {
+    $('#c_container').append('<a class="c_dates" id="c_d_' + i + '"></a>');
+  }
+  for (var i = WEEK_DAY; i < DAYS_IN_MONTHS[ m ] + WEEK_DAY; i++) {
+    $('#c_d_'+i).text(i - WEEK_DAY + 1);
+  }
+}
 function fillCalendar(y, m) {
   var period = $('div.page[data-page="calendar"]').first().attr("data-period");
   var name = $('body').attr("data-" + period);
@@ -66,79 +87,94 @@ function fillCalendar(y, m) {
     var obj = JSON.parse(d);
     console.log(obj);
 
+    var MONTHS = ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
+    var DAYS_IN_MONTHS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if ( (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0) ) { DAYS_IN_MONTHS[1] = 29; }
+
     $('#c_events').empty();
 
     obj.forEach(function (e) {
-      var year = parseInt(e.DTSTART.substr(0,4));
-      var mth = parseInt(e.DTSTART.substr(4,2));
-      var day = parseInt(e.DTSTART.substr(6,2));
-      var des = e.DESCRIPTION.split(" ___");
-      var len = des.length;
 
-      if (year == y && mth == m+1) {
-        $('#c_events').append('<div class="c_event" id="e_'+day+'">'
-        +'<p class="e_title">'+e["SUMMARY;LANGUAGE=en-us"]+'</p>'
-        +'<p class="e_time">'+e.DTSTART.substr(9,2)+':'+e.DTSTART.substr(11,2)+' - '+e.DTEND.substr(9,2)+':'+e.DTEND.substr(11,2)+'</p>'
-        +'<p class="e_place">'+e.LOCATION+'</p>'
-        +'<p class="e_place">'+des[0]+'</p></div>');
-        if (len > 1) {
-          $('#c_events .c_event:last-of-type').append('<a onclick="window.open(\''+des[1]+'\', \'_system\')" data-rel="external">'+des[1]+'</a>');
+      var START_YEAR = parseInt(e.DTSTART.substr(0,4));
+      var START_MONTH = parseInt(e.DTSTART.substr(4,2));
+      var START_DAY = parseInt(e.DTSTART.substr(6,2));
+
+      var END_YEAR = parseInt(e.DTEND.substr(0,4));
+      var END_MONTH = parseInt(e.DTEND.substr(4,2));
+      var END_DAY = parseInt(e.DTEND.substr(6,2));
+
+      var DESCRIPTION = e.DESCRIPTION.split(" ___");
+      var MULTI_MONTH = START_MONTH != END_MONTH;
+
+      var START_IN_YEAR = START_YEAR == y;
+      var START_IN_MONTH = START_MONTH == m+1;
+      var END_IN_YEAR = END_YEAR == y;
+      var END_IN_MONTH = END_MONTH == m+1;
+
+      var RELEVANT = (START_IN_YEAR || END_IN_YEAR) && (START_IN_MONTH || END_IN_MONTH);
+      var CONTAINED = START_IN_YEAR && END_IN_YEAR && START_IN_MONTH && END_IN_MONTH;
+
+      if (RELEVANT) {
+
+        $('#c_events').append(
+          '<div class="c_event c_event_'+period+' ev_'+START_DAY+'"><p class="e_title">'+e["SUMMARY;LANGUAGE=en-us"]+'</p><p class="e_date">'+START_DAY+'. '+MONTHS[ (START_MONTH-1) ]+'</p><p class="e_time">kl. '+e.DTSTART.substr(9,2)+':'+e.DTSTART.substr(11,2)+' - '+e.DTEND.substr(9,2)+':'+e.DTEND.substr(11,2)+'</p><p class="e_place">'+e.LOCATION+'</p><p class="e_description">'+DESCRIPTION[0]+'</p></div>'
+        );
+        if (DESCRIPTION.length > 1) {
+          $('#c_events .c_event:last-of-type').append('<a onclick="window.open(\''+DESCRIPTION[ DESCRIPTION.length-1 ]+'\', \'_system\')" data-rel="external" class="e_link">'+DESCRIPTION[ DESCRIPTION.length-1 ]+'</a>');
+        }
+        if (END_DAY != START_DAY) {
+          $('#c_events .c_event:last-of-type .e_date').append(' - '+END_DAY+'. '+MONTHS[ (END_MONTH-1) ]);
+        }
+
+        if (CONTAINED) {
+
+          for (var i = 0; i <= (END_DAY - START_DAY); i++) {
+            $('.c_dates:contains("'+(START_DAY+i)+'")').first().addClass('agenda');
+            $('.c_dates:contains("'+(START_DAY+i)+'")').first().addClass('agenda_'+period);
+            $('.c_dates:contains("'+(START_DAY+i)+'")').first().attr("onclick", "javascript:showDetails("+START_DAY+")");
+          }
+
+        } else if (START_IN_MONTH) {
+
+          for (var i = 0; i <= (DAYS_IN_MONTHS[ (START_MONTH-1) ] - START_DAY); i++) {
+            $('.c_dates:contains("'+(START_DAY+i)+'")').first().addClass('agenda');
+            $('.c_dates:contains("'+(START_DAY+i)+'")').first().addClass('agenda_'+period);
+            $('.c_dates:contains("'+(START_DAY+i)+'")').first().attr("onclick", "javascript:showDetails("+START_DAY+")");
+          }
+
+        } else if (END_IN_MONTH) {
+
+          for (var i = 0; i < END_DAY; i++) {
+            $('.c_dates:contains("'+(END_DAY-i)+'")').first().addClass('agenda');
+            $('.c_dates:contains("'+(END_DAY-i)+'")').first().addClass('agenda_'+period);
+            $('.c_dates:contains("'+(END_DAY-i)+'")').first().attr("onclick", "javascript:showDetails("+START_DAY+")");
+          }
         }
       }
+
     });
   });
-
-  /*$$.post('http://davidsvane.com/mt/rehearsal/rehearsal_get.php', {year: y, month: m+1}, function(d) {
-
-    if (d.length < 42) { return; }
-    var obj = JSON.parse(d);
-    var days = Object.keys(obj);
-
-    console.log(obj);
-
-    for (var day = 0; day < days.length; day++) {
-
-      $('.c_dates:contains('+days[day]+')').first().addClass('agenda');
-      $('.c_dates:contains('+days[day]+')').first().attr("href", "javascript:showDetails("+days[day]+")");
-
-      $('#p_calendar').append('<div class="c_events" id="e_'+days[day]+'"></div>');
-
-      for (var des = 0; des < obj[days[day]]['descriptions'].length-1; des++) {
-        var description = bolditalic(decodeURI(obj[days[day]]['descriptions'][des]));
-        var title = bolditalic(decodeURI(obj[days[day]]['titles'][des]));
-        $('#e_'+days[day]).append('<div class="description"><span>'+bolditalic(decodeURI(title))+'</span><span>'+bolditalic(decodeURI(description))+'</span></div>');
-      }
-
-      $('#e_'+days[day]).append('<div class="startstop">Tidspunkt: '+bolditalic(decodeURI(obj[days[day]]['start']))+' - '+bolditalic(decodeURI(obj[days[day]]['stop']))+'</div>');
-      $('#e_'+days[day]).append('<div class="teacher"><span>Prøve med:</span><span>'+bolditalic(decodeURI(obj[days[day]]['leader']))+'</span></div>');
-      $('#e_'+days[day]).append('<div class="doorsopen"><span>Dørene åbner:</span><span>'+bolditalic(decodeURI(obj[days[day]]['doors']))+'</span></div>');
-      $('#e_'+days[day]).append('<div class="dressing"><span>Dresscode:</span><span>'+bolditalic(decodeURI(obj[days[day]]['dress']))+'</span></div>');
-      $('#e_'+days[day]).append('<div class="luggage"><span>Medbring:</span><span>'+bolditalic(decodeURI(obj[days[day]]['bring']))+'</span></div>');
-      $('#e_'+days[day]).append('<div class="preparation"><span>Forberedelse:</span><span>'+bolditalic(decodeURI(obj[days[day]]['prep']))+'</span></div>');
-      $('#e_'+days[day]).append('<div class="adresse">'+bolditalic(decodeURI(obj[days[day]]['place']))+'</div>');
-
-    }
-
-  });*/
 }
 function changeMonth(n) {
-  var y = parseInt( $('#c_y_n').text() );
-  var m = parseInt( $('#c_m_n').text() ) +n;
+  var y = parseInt( $('#c_container').attr("curr-year") );
+  var m = parseInt( $('#c_container').attr("curr-month") ) + n;
   if (m > 11) {
-    y += n;
+    y += 1;
     m %= 12;
   } if (m < 0) {
-    y += n;
+    y -= 1;
     m += 12;
   }
+  buildCalendar(y, m);
   fillCalendar(y, m);
 }
 function showDetails(n) {
   $('.e_active').removeClass('e_active');
   $('.c_dates:contains('+n+')').first().addClass('e_active');
-  $('.c_events').hide();
-  $('#e_'+n).show();
+  $('.c_event').hide();
+  $('.ev_'+n).show();
 }
+
 /* snacks */
 function checkSnack() {
   $('#s_betal').toggle( parseInt( $('#s_pris').html() ) != 0 );
@@ -157,6 +193,7 @@ function removeSnack() {
   if (parseInt( $('#s_pris').html() ) < 0) { $('#s_pris').html( 0 ); }
   checkSnack();
 }
+
 /* tickets */
 function addTicket(grp) {
   var grps = { A:199, B:189, C:149, D:129 };
@@ -190,34 +227,12 @@ function resetTickets() {
 
 // INFO: PAGE LOGICS (todo: calendar, tickets)
 myApp.onPageInit('calendar', function(page) {
-  for (var i = 0; i < 42; i++) {
-    $('#c_container').append('<a class="c_dates" id="c_d_' + i + '"></a>');
-  }
+  var TODAY = new Date();
+  var YEAR = TODAY.getFullYear();
+  var MONTH = TODAY.getMonth();
 
-  var d = new Date();
-  var y = d.getFullYear();
-  var m = d.getMonth();
-
-  var ms = ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
-  var dim = [31,28,31,30,31,30,31,31,30,31,30,31];
-  var d = new Date(y, m);
-  var wd = (d.getDay() + 6) % 7;
-  var l = (y%4==0 && y%100!=0) || (y%400==0);
-
-  for (var i = 0; i < 42; i++) {
-    $('#c_d_'+i).text("");
-  }
-  $('.agenda').removeClass('agenda');
-  $('.e_active').removeClass('e_active');
-
-  $('#c_month').text(ms[m] + " " + y);
-  $('#c_m_n').text(m%12);
-  $('#c_y_n').text(y);
-  for (var i = wd; i < dim[m]+wd; i++) {
-    $('#c_d_'+i).text(i-wd+1);
-  }
-
-  fillCalendar(y, m);
+  buildCalendar(YEAR, MONTH)
+  fillCalendar(YEAR, MONTH);
 });
 myApp.onPageInit('contacts', function(page) {
   var period = $('div.page[data-page="contacts"]').first().attr("data-period");

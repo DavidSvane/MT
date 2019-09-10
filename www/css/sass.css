@@ -18,7 +18,7 @@
 
 .panel-left a { display: block; font-weight: bold; margin: 0 1em; padding: 0.5em 0; }
 
-.panel-left a.creator { padding: 0; margin: 0; width: 100%; text-align: center; font-style: italic; }
+.panel-left a.creator { padding: 0; margin: 0; width: 100%; text-align: center; font-weight: lighter; font-family: mt; }
 
 .panel-left img { height: 1.5em; }
 
@@ -32,7 +32,7 @@
 
 #p_index .show-left .poster { grid-column-start: 1; }
 
-#p_index .show-left .i_calendar, #p_index .show-left .i_tickets { background-color: #CA9; }
+#p_index .show-left .i_calendar, #p_index .show-left .i_tickets { background-color: #B96; }
 
 #p_index .show-right .poster { grid-column-start: 2; }
 
@@ -96,31 +96,37 @@
 
 #c_container .c_dates { background: #F0F0F0; box-sizing: border-box; height: 2.5em; align-self: center; }
 
-#c_container .agenda { background: #FE9; }
+#c_container .agenda { color: white; }
+
+#c_container .agenda_F { background: #B96; }
+
+#c_container .agenda_E { background: #29D; }
 
 #c_month { grid-column-start: 2; grid-column-end: 7; font-size: 1.5em; }
 
-#c_m_n, #c_y_n { display: none; }
+#c_events { box-sizing: border-box; width: 100%; }
 
-.c_events { background: #FE9; padding: 0; margin-bottom: 1em; box-sizing: border-box; border-radius: 1em; overflow: hidden; display: none; }
+.c_event { color: white; padding: 0; margin-bottom: 1em; box-sizing: border-box; border-radius: 4px; overflow: hidden; display: block; padding: 1.25em; }
 
-.c_events > div { display: block; box-sizing: border-box; padding: 1em; width: 100%; }
+.c_event_F { background: #B96; }
 
-.c_events > div:nth-child(2n) { background: #F0F0F0; }
+.c_event_E { background: #29D; }
 
-.c_events > div > span:first-child { font-weight: bold; padding-right: 4px; }
+.c_event .e_title { width: 100%; font-size: 1.5em; text-align: center; margin: 0; padding-bottom: 0.5em; }
 
-.c_events > div > span:last-child { font-size: 0.9em; }
+.c_event .e_date { display: inline; }
 
-.c_events .description span:first-child { display: block; }
+.c_event .e_time { display: inline; padding-left: 1em; }
 
-.c_events .startstop { font-weight: bold; font-style: italic; font-size: 0.9em; }
+.c_event .e_place { margin-top: 0; padding-top: 0; font-style: italic; }
 
-.c_events .adresse { font-size: 0.9em; }
+.c_event .e_link { color: #EEE; text-decoration: underline; }
 
-.c_events i { font-size: 0.9em; }
+.e_active { color: white !important; }
 
-.e_active { background: #FB0 !important; color: white !important; }
+.e_active_F { background: #B96 !important; }
+
+.e_active_E { background: #29D !important; }
 
 /* TICKET SHOP */
 #p_tickets { display: grid; grid-template-rows: 2fr 4fr 2fr; grid-gap: 1em; }
@@ -177,6 +183,6 @@
 
 #p_files a img { box-sizing: border-box; padding: 1em; width: 100%; }
 
-.construction { align-items: center; background: rgba(0, 0, 0, 0.4); color: white; display: flex; flex-direction: column; font-family: mt; font-size: 3em; height: 100%; justify-content: center; position: fixed; text-align: center; text-shadow: 0 0 10px black; z-index: 9000; width: 100%; }
+.construction { align-items: center; background: rgba(0, 0, 0, 0.4); color: white; display: flex; flex-direction: column; font-family: mt; font-size: 3em; height: 100%; justify-content: center; position: fixed; text-align: center; text-shadow: 0 0 10px black; z-index: 9000; width: 100%; top: 0; left: 0; }
 
 /*# sourceMappingURL=sass.css.map */
