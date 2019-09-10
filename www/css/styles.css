@@ -34,9 +34,9 @@
 /* FRONT PAGE */
 #p_index { display: none; grid-template-row: repeat(3, 1fr); grid-gap: 1em; height: 100%; }
 #p_index a { display: block; box-sizing: border-box; padding: 1.5em; background-position: center; background-repeat: no-repeat; background-size: contain; background-origin: content-box; }
-#i_snacks { background: var(--theme-light) url('../res/icon_snacks.png'); }
-#i_calendar { background: var(--gray-dark) url('../res/icon_calendar.png'); }
-#i_tickets { background: var(--theme-light) url('../res/icon_tickets.png'); }
+#i_snacks { background: var(--theme-light) url('../res/graphics/icon_snacks.png'); }
+#i_calendar { background: var(--gray-dark) url('../res/graphics/icon_calendar.png'); }
+#i_tickets { background: var(--theme-light) url('../res/graphics/icon_tickets.png'); }
 /*#p_index img { width: 50%; }*/
 
 #login_screen { box-sizing: border-box; padding: 4em; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(5, 1fr); grid-gap: 1em; }

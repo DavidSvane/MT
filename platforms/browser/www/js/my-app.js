@@ -247,15 +247,15 @@ myApp.onPageInit('contacts', function(page) {
     obj.forEach(function (e) {
       var cnt = '<tr><td><a onclick="window.open(\'mailto:' + e.mail + '\', \'_system\')" data-rel="external">' + e.name + '</a></td><td>' + e.function + '</td><td class="ct_phone">';
       if (e.phone != '') {
-        cnt += '<a onclick="window.open(\'tel:' + e.phone + '\', \'_system\')" data-rel="external"><img src="res/icon_contacts_orange.png"/></a>';
+        cnt += '<a onclick="window.open(\'tel:' + e.phone + '\', \'_system\')" data-rel="external"><img src="res/graphics/icon_contacts_orange.png"/></a>';
       }
       cnt += '</td><td class="ct_fb">';
       if (e.fb != '') {
-        cnt += '<a onclick="window.open(\'https://facebook.com/' + e.fb + '\', \'_system\')" data-rel="external"><img src="res/icon_fb_orange.png"/></a>';
+        cnt += '<a onclick="window.open(\'https://facebook.com/' + e.fb + '\', \'_system\')" data-rel="external"><img src="res/graphics/icon_fb_orange.png"/></a>';
       }
       cnt += '</td><td class="ct_snap">';
       if (e.snap != '') {
-        cnt += '<a onclick="window.open(\'https://www.snapchat.com/add/' + e.snap + '\', \'_system\')" data-rel="external"><img src="res/snap.png"/></a>';
+        cnt += '<a onclick="window.open(\'https://www.snapchat.com/add/' + e.snap + '\', \'_system\')" data-rel="external"><img src="res/graphics/icon_snap.png"/></a>';
       }
       cnt += '</td></tr>';
 
@@ -298,7 +298,7 @@ myApp.onPageInit('files', function(page) {
       type = splt[ (splt.length-1) ];
       splt.pop();
 
-      $('#p_files').append('<a onclick="window.open(\'http://davidsvane.com/mt/'+ play +'/'+ file +'\', \'_system\')" data-rel="external"><img src="res/type_'+ type +'.png"/><p>'+ splt.join(".") +'</p></a>');
+      $('#p_files').append('<a onclick="window.open(\'http://davidsvane.com/mt/'+ play +'/'+ file +'\', \'_system\')" data-rel="external"><img src="res/types/type_'+ type +'.png"/><p>'+ splt.join(".") +'</p></a>');
     });
   });
 });
