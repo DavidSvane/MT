@@ -36,21 +36,23 @@
 
     &-left
       .poster
-        background-image: url("../res/poster_diva.jpg")
         grid-column-start: 1
+      .i_calendar, .i_tickets
+        background-color: $front-F
 
     &-right
       .poster
-        background-image: url("../res/poster_vaek.jpg")
         grid-column-start: 2
+      .i_calendar, .i_tickets
+        background-color: $front-E
 
 
 #i_snacks
   background: $theme-light url('../res/icon_snacks.png')
-.i_calendar
-  background: $theme-light url('../res/icon_calendar.png')
 .i_tickets
-  background: $gray-dark url('../res/icon_tickets.png')
+  background-image: url('../res/icon_tickets.png')
+.i_calendar
+  background-image: url('../res/icon_calendar.png')
 
 
 // INFO: LOGIN PAGE

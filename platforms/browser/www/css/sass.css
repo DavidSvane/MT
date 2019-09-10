@@ -10,7 +10,7 @@
 
 #main_menu { display: none; }
 
-.panel-left { background: #AAA; }
+.panel-left { background: #888; }
 
 .panel-left * { color: white; vertical-align: middle; }
 
@@ -30,15 +30,19 @@
 
 #p_index .show-left .poster, #p_index .show-right .poster { display: block; width: 100%; height: 100%; padding: 0; margin: 0; background-position: center; background-repeat: no-repeat; background-size: cover; grid-row-start: 1; grid-row-end: 3; }
 
-#p_index .show-left .poster { background-image: url("../res/poster_diva.jpg"); grid-column-start: 1; }
+#p_index .show-left .poster { grid-column-start: 1; }
 
-#p_index .show-right .poster { background-image: url("../res/poster_vaek.jpg"); grid-column-start: 2; }
+#p_index .show-left .i_calendar, #p_index .show-left .i_tickets { background-color: #CA9; }
+
+#p_index .show-right .poster { grid-column-start: 2; }
+
+#p_index .show-right .i_calendar, #p_index .show-right .i_tickets { background-color: #29D; }
 
 #i_snacks { background: #FB0 url("../res/icon_snacks.png"); }
 
-.i_calendar { background: #FB0 url("../res/icon_calendar.png"); }
+.i_tickets { background-image: url("../res/icon_tickets.png"); }
 
-.i_tickets { background: #AAA url("../res/icon_tickets.png"); }
+.i_calendar { background-image: url("../res/icon_calendar.png"); }
 
 #login_screen { box-sizing: border-box; padding: 4em; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(5, 1fr); grid-gap: 1em; }
 
