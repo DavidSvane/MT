@@ -39,7 +39,7 @@
         </edit-config>-->
 
         <!-- http://docs.phonegap.com/phonegap-build/configuring/config-file-element/ -->
-        <config-file platform="android" parent="/manifest" mode="merge">
+        <config-file platform="android" target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
             <application android:usesCleartextTraffic="true" />
         </config-file>
 
