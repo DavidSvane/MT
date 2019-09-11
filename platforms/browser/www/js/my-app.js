@@ -84,8 +84,7 @@ function fillCalendar(y, m) {
   console.log(period + ": " + name);
 
   $$.post('http://davidsvane.com/mt/event/ical_app.php', {play: name}, function(d) {
-    $('#c_events').text(d);
-    /*var obj = JSON.parse(d);
+    var obj = JSON.parse(d);
     console.log(obj);
 
     var MONTHS = ["Januar", "Februar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
@@ -153,7 +152,7 @@ function fillCalendar(y, m) {
         }
       }
 
-    });*/
+    });
   });
 }
 function changeMonth(n) {
