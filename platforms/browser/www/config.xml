@@ -21,4 +21,5 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="AllowInlineMediaPlayback" value="true" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="phonegap-version" value="cli-6.5.0" />
 </widget>

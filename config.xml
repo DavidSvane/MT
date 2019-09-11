@@ -34,14 +34,14 @@
         <allow-intent href="market:*" />
 
         <!-- stackoverflow: 54752716 -->
-        <!--<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
-        </edit-config>-->
+        </edit-config>
 
         <!-- http://docs.phonegap.com/phonegap-build/configuring/config-file-element/ -->
-        <config-file platform="android" target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
+        <!--<config-file platform="android" target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
             <application android:usesCleartextTraffic="true" />
-        </config-file>
+        </config-file>-->
 
 		    <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
@@ -76,7 +76,7 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="AllowInlineMediaPlayback" value="true" />
     <preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <preference name="phonegap-version" value="cli-6.5.0" />
+    <preference name="phonegap-version" value="cli-9.0.0" />
 
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
