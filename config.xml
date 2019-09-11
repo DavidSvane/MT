@@ -28,7 +28,7 @@
     <allow-navigation href="*youtube-nocookie*" />
 
     <platform name="android">
-        <preference name="android-minSdkVersion" value="14" />
+        <preference name="android-minSdkVersion" value="19" />
         <preference name="android-targetSdkVersion" value="28" /> <!-- CHANGE TO 28 PREVENTS http CONNECTION -->
 
         <allow-intent href="market:*" />
