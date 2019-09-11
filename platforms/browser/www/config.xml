@@ -18,7 +18,7 @@
     <allow-intent href="http://*/*" launch-external="yes" />
     <allow-intent href="https://*/*" launch-external="yes" />
     <allow-navigation href="http://www.musicalteatret.dk/*" />
-    <allow-navigation href="http://www.davidsvane.com/*" />
+    <allow-navigation href="http://davidsvane.com/*" />
     <allow-navigation href="*youtube*" />
     <allow-navigation href="*ytimg*" />
     <allow-navigation href="*youtube-nocookie*" />
