@@ -21,23 +21,25 @@
     <allow-intent href="http://*/*" launch-external="yes"/>
     <allow-intent href="https://*/*" launch-external="yes"/>
 
-    <allow-navigation href="http://www.musicalteatret.dk/*"/>
-    <allow-navigation href="http://davidsvane.com/*"/>
-    <allow-navigation href="*youtube*" />
-    <allow-navigation href="*ytimg*" />
-    <allow-navigation href="*youtube-nocookie*" />
+    <allow-navigation href="*musicalteatret.dk*"/> <!-- PREV: http://www.musicalteatret.dk/* -->
+    <allow-navigation href="*davidsvane.com*"/> <!-- PREV: https://davidsvane.com/* -->
+    <allow-navigation href="*youtube*" /> <!-- NEEDED FOR EMBEDDED YOUTUBE VIDEO -->
+    <allow-navigation href="*ytimg*" /> <!-- NEEDED FOR EMBEDDED YOUTUBE VIDEO -->
+    <allow-navigation href="*youtube-nocookie*" /> <!-- NEEDED FOR EMBEDDED YOUTUBE VIDEO -->
 
     <platform name="android">
-        <preference name="android-minSdkVersion" value="19" />
-        <preference name="android-targetSdkVersion" value="28" /> <!-- CHANGE TO 28 PREVENTS http CONNECTION -->
+        <preference name="android-minSdkVersion" value="19" /> <!-- 19 TO COMPLY WITH cli-9.0.0 -->
+        <preference name="android-targetSdkVersion" value="28" /> <!-- 28 (google) REQUIRES https OR usesCleartextTraffic="true" -->
 
         <allow-intent href="market:*" />
 
+        <!-- MORE THAN cli-6.5.0 -->
         <!-- stackoverflow: 54752716 -->
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
         </edit-config>
 
+        <!-- ONLY cli-6.5.0 -->
         <!-- http://docs.phonegap.com/phonegap-build/configuring/config-file-element/ -->
         <!--<config-file platform="android" target="AndroidManifest.xml" parent="/manifest/application" mode="merge">
             <application android:usesCleartextTraffic="true" />
@@ -74,9 +76,9 @@
     </platform>
 
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="AllowInlineMediaPlayback" value="true" />
-    <preference name="MediaPlaybackRequiresUserAction" value="false" />
-    <preference name="phonegap-version" value="cli-9.0.0" />
+    <preference name="AllowInlineMediaPlayback" value="true" /> <!-- NEEDED FOR EMBEDDED YOUTUBE VIDEO -->
+    <preference name="MediaPlaybackRequiresUserAction" value="false" /> <!-- NEEDED FOR EMBEDDED YOUTUBE VIDEO -->
+    <preference name="phonegap-version" value="cli-9.0.0" /> <!-- CLI VERSION DEFAULTS TO 6.5.0 -->
 
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
