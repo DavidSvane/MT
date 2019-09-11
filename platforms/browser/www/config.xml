@@ -1,12 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.davidsvane.mt" version="1.1.9d" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.davidsvane.mt" version="1.1.9e" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MusicalTeatret</name>
-    <description>
-        MusicalTeatrets Officielle App
-    </description>
-    <author email="davidsvane@yahoo.dk" href="https://www.facebook.com/davidsvane">
-        David Svane
-    </author>
+    <description>MusicalTeatrets Officielle App</description>
+    <author email="davidsvane@yahoo.dk" href="https://www.facebook.com/davidsvane">David Svane</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
