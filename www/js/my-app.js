@@ -119,9 +119,12 @@ function fillCalendar(y, m) {
         $('#c_events').append(
           '<div class="c_event c_event_'+period+' ev_'+START_DAY+'"><p class="e_title">'+e["SUMMARY;LANGUAGE=en-us"]+'</p><p class="e_date">'+START_DAY+'. '+MONTHS[ (START_MONTH-1) ]+'</p><p class="e_time">kl. '+e.DTSTART.substr(9,2)+':'+e.DTSTART.substr(11,2)+' - '+e.DTEND.substr(9,2)+':'+e.DTEND.substr(11,2)+'</p><p class="e_place">'+e.LOCATION+'</p><p class="e_description">'+DESCRIPTION[0]+'</p></div>'
         );
-        if (DESCRIPTION.length > 1) {
-          $('#c_events .c_event:last-of-type').append('<a onclick="window.open(\''+DESCRIPTION[ DESCRIPTION.length-1 ]+'\', \'_system\')" data-rel="external" class="e_link">'+DESCRIPTION[ DESCRIPTION.length-1 ]+'</a>');
+        for (var i = 1; i < DESCRIPTION.length; i++) {
+          $('#c_events .c_event:last-of-type').append('<a onclick="window.open(\''+DESCRIPTION[i]+'\', \'_system\')" data-rel="external" class="e_link">'+DESCRIPTION[i]+'</a><br />');
         }
+        /*if (DESCRIPTION.length > 1) {
+          $('#c_events .c_event:last-of-type').append('<a onclick="window.open(\''+DESCRIPTION[ DESCRIPTION.length-1 ]+'\', \'_system\')" data-rel="external" class="e_link">'+DESCRIPTION[ DESCRIPTION.length-1 ]+'</a>');
+        }*/
         if (END_DAY != START_DAY) {
           $('#c_events .c_event:last-of-type .e_date').append(' - '+END_DAY+'. '+MONTHS[ (END_MONTH-1) ]);
         }
@@ -257,6 +260,10 @@ myApp.onPageInit('contacts', function(page) {
       if (e.snap != '') {
         cnt += '<a onclick="window.open(\'https://www.snapchat.com/add/' + e.snap + '\', \'_system\')" data-rel="external"><img src="res/graphics/icon_snap.png"/></a>';
       }
+      cnt += '</td><td class="ct_insta">';
+      if (e.insta != '') {
+        cnt += '<a onclick="window.open(\'https://www.instagram.com/' + e.insta + '\', \'_system\')" data-rel="external"><img src="res/graphics/icon_instagram_orange.png"/></a>';
+      }
       cnt += '</td></tr>';
 
       $('#p_contacts table tbody').append(cnt);
@@ -298,7 +305,7 @@ myApp.onPageInit('files', function(page) {
       type = splt[ (splt.length-1) ];
       splt.pop();
 
-      $('#p_files').append('<a onclick="window.open(\'http://davidsvane.com/mt/'+ play +'/'+ file +'\', \'_system\')" data-rel="external"><img src="res/types/type_'+ type +'.png"/><p>'+ splt.join(".") +'</p></a>');
+      $('#p_files').append('<a onclick="window.open(\'http://davidsvane.com/mt/file/'+ play +'/'+ file +'\', \'_system\')" data-rel="external"><img src="res/types/type_'+ type +'.png"/><p>'+ splt.join(".") +'</p></a>');
     });
   });
 });
