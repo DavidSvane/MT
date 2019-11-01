@@ -78,7 +78,7 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="AllowInlineMediaPlayback" value="true" /> <!-- NEEDED FOR EMBEDDED YOUTUBE VIDEO -->
     <preference name="MediaPlaybackRequiresUserAction" value="false" /> <!-- NEEDED FOR EMBEDDED YOUTUBE VIDEO -->
-    <preference name="phonegap-version" value="cli-9.0.0" /> <!-- CLI VERSION DEFAULTS TO 6.5.0 -->
+    <preference name="phonegap-version" value="cli-6.5.0" /> <!-- CLI VERSION DEFAULTS TO 6.5.0 -->
 
     <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
     <plugin name="cordova-plugin-console" spec="~1.0.1" />
